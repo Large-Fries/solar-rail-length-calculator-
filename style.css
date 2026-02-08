@@ -1,0 +1,125 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.4;
+}
+
+body {
+  margin: 0;
+  background: #f4f7fb;
+  color: #132238;
+}
+
+.container {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  margin-bottom: 0.5rem;
+}
+
+.intro {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.1rem;
+  box-shadow: 0 6px 20px rgba(22, 48, 75, 0.08);
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  border: 1px solid #c4cfdd;
+  border-radius: 8px;
+  padding: 0.52rem 0.6rem;
+}
+
+button {
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 9px;
+  background: #005fc7;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #034d9f;
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+#note {
+  font-size: 0.95rem;
+  color: #30445e;
+  margin-bottom: 0;
+}
+
+.inline-diagram {
+  border: 1px solid #d7e1ef;
+  border-radius: 8px;
+  background: #f9fbff;
+  padding: 0.25rem;
+}
+
+.inline-diagram svg {
+  width: 100%;
+  height: auto;
+}
+
+.panel {
+  fill: #dbe9fb;
+  stroke: #2a5d9f;
+  stroke-width: 2;
+}
+
+.rail {
+  stroke: #334155;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.measure {
+  stroke: #005fc7;
+  stroke-width: 2;
+}
+
+.tick {
+  stroke: #005fc7;
+  stroke-width: 2;
+}
+
+svg text {
+  fill: #1f3350;
+  font-size: 7.5px;
+  font-weight: 600;
+}
