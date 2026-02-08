@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar Rail Length Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Solar Panel Mounting Rail Length Calculator</h1>
+      <p class="intro">
+        Estimate how much mounting rail you need for a solar array row and for the full installation.
+      </p>
+
+      <form id="rail-form" class="card">
+        <div class="grid">
+          <label>
+            Number of rows
+            <input type="number" id="rows" min="1" value="2" required />
+          </label>
+
+          <label>
+            Panels per row
+            <input type="number" id="panelsPerRow" min="1" value="6" required />
+          </label>
+
+          <label>
+            Rails per row
+            <input type="number" id="railsPerRow" min="1" value="2" required />
+          </label>
+
+          <label>
+            Panel orientation
+            <select id="orientation">
+              <option value="portrait" selected>Portrait</option>
+              <option value="landscape">Landscape</option>
+            </select>
+          </label>
+
+          <label>
+            Panel length (mm)
+            <input type="number" id="panelLength" min="1" step="1" value="1722" required />
+            <span class="inline-diagram" aria-hidden="true">
+              <svg viewBox="0 0 140 42">
+                <rect x="56" y="6" width="28" height="30" rx="2" class="panel" />
+                <line x1="92" y1="6" x2="92" y2="36" class="measure" />
+                <line x1="89" y1="6" x2="95" y2="6" class="tick" />
+                <line x1="89" y1="36" x2="95" y2="36" class="tick" />
+                <text x="98" y="23">Length</text>
+              </svg>
+            </span>
+          </label>
+
+          <label>
+            Panel width (mm)
+            <input type="number" id="panelWidth" min="1" step="1" value="1133" required />
+            <span class="inline-diagram" aria-hidden="true">
+              <svg viewBox="0 0 140 42">
+                <rect x="35" y="10" width="70" height="22" rx="2" class="panel" />
+                <line x1="35" y1="6" x2="105" y2="6" class="measure" />
+                <line x1="35" y1="4" x2="35" y2="8" class="tick" />
+                <line x1="105" y1="4" x2="105" y2="8" class="tick" />
+                <text x="70" y="17" text-anchor="middle">Width</text>
+              </svg>
+            </span>
+          </label>
+
+          <label>
+            Gap between panels (mm)
+            <input type="number" id="gap" min="0" step="1" value="19" required />
+            <span class="inline-diagram" aria-hidden="true">
+              <svg viewBox="0 0 140 42">
+                <rect x="6" y="12" width="48" height="20" rx="2" class="panel" />
+                <rect x="86" y="12" width="48" height="20" rx="2" class="panel" />
+                <line x1="54" y1="22" x2="86" y2="22" class="measure" />
+                <line x1="54" y1="19" x2="54" y2="25" class="tick" />
+                <line x1="86" y1="19" x2="86" y2="25" class="tick" />
+                <text x="70" y="13" text-anchor="middle">Gap</text>
+              </svg>
+            </span>
+          </label>
+
+          <label>
+            End overhang each side (mm)
+            <input type="number" id="overhang" min="0" step="1" value="152" required />
+            <span class="inline-diagram" aria-hidden="true">
+              <svg viewBox="0 0 140 42">
+                <line x1="4" y1="30" x2="136" y2="30" class="rail" />
+                <rect x="34" y="14" width="72" height="12" rx="2" class="panel" />
+                <line x1="4" y1="10" x2="34" y2="10" class="measure" />
+                <line x1="4" y1="8" x2="4" y2="12" class="tick" />
+                <line x1="34" y1="8" x2="34" y2="12" class="tick" />
+                <text x="19" y="8" text-anchor="middle">Overhang</text>
+              </svg>
+            </span>
+          </label>
+
+          <label>
+            Waste factor (%)
+            <input type="number" id="waste" min="0" step="0.1" value="8" required />
+          </label>
+
+          <label>
+            Stock rail length (mm)
+            <input type="number" id="stockLength" min="1" step="1" value="4267" required />
+            <span class="inline-diagram" aria-hidden="true">
+              <svg viewBox="0 0 140 42">
+                <line x1="8" y1="24" x2="132" y2="24" class="rail" />
+                <line x1="8" y1="10" x2="132" y2="10" class="measure" />
+                <line x1="8" y1="8" x2="8" y2="12" class="tick" />
+                <line x1="132" y1="8" x2="132" y2="12" class="tick" />
+                <text x="70" y="8" text-anchor="middle">Stock rail length</text>
+              </svg>
+            </span>
+          </label>
+        </div>
+
+        <button type="submit">Calculate rail lengths</button>
+      </form>
+
+      <section id="results" class="card" aria-live="polite">
+        <h2>Results</h2>
+        <ul>
+          <li>Rail length per row: <strong id="perRow">—</strong></li>
+          <li>Total rail length (without waste): <strong id="totalNoWaste">—</strong></li>
+          <li>Total rail length (with waste): <strong id="totalWithWaste">—</strong></li>
+          <li>Estimated stock rails needed: <strong id="stockCount">—</strong></li>
+        </ul>
+        <p id="note"></p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
